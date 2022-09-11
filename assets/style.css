@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@700&family=Lobster&family=Poppins&family=Roboto:wght@500&family=Source+Serif+Pro&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    list-style-type: none;
+}
+/*header*/
+header{
+    background-image: url(./imagenes/background.jpg);
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100px;
+    padding: 0px 30px;
+    position: fixed;
+    top: 0;
+    border-bottom: 2px solid rgb(111, 51, 151);
+}
+/*logo*/
+.logo{
+    height: 90%;
+}
+/*navbar*/
+.navbar,
+.navbar-list{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.navbar-list{
+    gap: 60px;
+}
+.navbar-list a{
+    color: rgb(111, 51, 151);
+    font-weight: 600;
+    border: 2px solid rgb(111, 51, 151);
+    padding: 7px 14px;
+    border-radius: 6px;
+    background: rgb(247, 224, 198);
+}
+.navbar-list a:hover{
+    color: rgb(247, 224, 198);
+    background: rgb(111, 51, 151);
+    border: 2px solid rgb(247, 224, 198);
+    transition: 400ms;
+}
