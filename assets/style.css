@@ -2,10 +2,13 @@
 :root{
     --background: #000;
     --background-radial: radial-gradient(#331a3a, #000);
+    --color-gradient: linear-gradient(to right, #caacfa, #ecacb7, #d2b48c);
     --borders: #caacfa;
     --text-violeta: #331a3a;
     --text-ocre: #d2b48c;
     --text-rosa: #ecacb7;
+    
+    
 }
 *{
     margin: 0;
@@ -14,6 +17,7 @@
     font-family: 'Poppins', sans-serif;
     text-decoration: none;
     list-style-type: none;
+        
 }
 /*header*/
 header{
@@ -26,7 +30,8 @@ header{
     padding: 0px 30px;
     position: fixed;
     top: 0;
-    border-bottom: 2px ridge var(--borders);  
+    border-bottom: 2px ridge var(--borders);
+    z-index: 1;  
 }
 /*logo*/
 .logo{
@@ -38,6 +43,13 @@ header{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.navbar img{
+    width: 30px;
+    display: none;
+}
+#toggle-menu{
+    display: none;
 }
 .navbar-list{
     gap: 60px;
@@ -57,17 +69,18 @@ main{
     align-items: center;
     justify-content: center;
     width: 100%;
-    background: var(--background);
+    background: var(--background-radial);
 }
 /*hero*/
 #hero{
     margin-top: 110px;
     padding: 0px 40px;
     max-width: 1200px;
+    width: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 10px;    
 }
 .hero-info{
     display: flex;
@@ -80,19 +93,29 @@ main{
     padding: 0px 10px;
     margin-top: 18px;
     background: var(--background-radial);  
-    border-radius: 30px;    
+    border-radius: 30px;
+    animation: translateX 1s 1;    
+}
+@keyframes translateX{
+    0%{
+        transform: translateX(-1000px);
+    }
+    100%{
+        transform: translate(0px);
+    }
 }
 .hero-info h1{
     text-align: center;
     width: 80%;
-    min-width: 500px;
+    min-width: 400px;
     font-size: 35px;    
     font-weight: 800;
     color: var(--text-rosa);
+    
 }
 .hero-info p{
     width: 70%;
-    font-size: 17px;
+    font-size: 20px;
     text-align: justify;
     font-style: oblique;
     line-height: 30px;
@@ -129,9 +152,18 @@ main{
 }
 .hero-img{
     margin-top: 18px;
+    animation: translatex 1s 1;
+}
+@keyframes translatex{
+    0%{
+        transform: translateX(1000px);
+    }
+    100%{
+        transform: translate(0px);
+    }
 }
 .hero-img img{
-    width: 671px;
+    width: 100%;
     height: 431px;
     border-radius: 30px;
     margin-top: 7px;
@@ -143,26 +175,306 @@ main{
     justify-content: center;
     align-items: center;
     margin-bottom: 15px;
-    margin-top: 10px;
+    margin-top: 60px;
+    max-width: 1200px;
 }
 .p-info{
-    width: 80%;    
+    width: 100%;    
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;           
-    padding: 10px 0px;    
-    border-bottom: 2px ridge var(--borders);
+    text-align: center;               
+    padding: 30px 0px;    
+   
 }
 .p-info p{
-    font-size: 16px;
+    font-size: 18px;
     width: 90%;
     color: var(--text-rosa);
+    line-height: 14px;
     line-height: 20px;
 }
 .p-info p:last-child{
     font-weight: 700;
     font-style: oblique;
     text-align: center;
+    margin-top: 8px;
+}
+/* Cards */
+#cards{
+    padding: 50px 0px;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    background-color: var(--background-radial);
+    width: 100%;
+}
+#cards h2{
+    font-size: 60px;
+    font-weight: 800;
+    background: var(--color-gradient);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    display: inline-block;
+    position: relative;
+    }
+#cards h2::before, 
+h2::after{
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 5px;
+    background-color: var(--text-ocre);
+    top: 0.6em; 
+}
+#cards h2::before{
+    left: -120px;
+}
+#cards h2::after{
+    right: -120px;
+    background-color: var(--borders);    
+}
+.info-cards-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+.info-card{
+    width: 350px;
+    height: 350px;
+    padding: 30px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: var(--text-ocre);
+    border-radius: 10px;
+    gap: 17px;
+    transition: all 300ms ease-in;
+}
+.info-card:hover{
+    transform: scale(1.1,1.1);
+    transition: all 300ms ease-out;
+    animation-direction: alternate;
+}    
+.info-card img{
+    width: 300px;
+    height: 180px;
+    border-radius: 50%;   
+}
+.info-card h3{
+    font-weight: 600;
+    font-size: 20px;  
+}
+.info-card p{
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--text-violeta);
+}
+/* Contacto */
+#contact{
+    display: flex;      
+    border-radius: 1rem;
+    max-width: 1200px;
+    padding: 40px 0px;
+}
+.contacto{
+    display: flex;
+    padding: 40px 30px;
+    gap: 137px;   
+}
+.datos h2{   
+    text-align: center;
+    min-width: 300px;
+    font-size: 50px;    
+    font-weight: 600;
+    color: var(--text-rosa);
+}
+.datos h3{
+    font-size: 25px;
+    color: var(--text-ocre);
+}
+.datos ul{
+    padding: 30px;   
+}
+.datos li{
+    font-size: 20px;
+    color: var(--borders);
+}   
+.datos ul:last-child{
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+}
+.ig{
+    color: var(--borders);
+}
+.ig:hover{
+    color: var(--text-ocre);
+}
+.tt{
+    color: var(--borders);
+}
+.tt:hover{
+    color: var(--text-ocre);
+}
+.mapa iframe{
+    width: 24vw;
+}
+/* Footer */
+footer{
+    background: var(--text-ocre);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+}
+footer p{
+    padding: 7px;
 }
 
+/* Mediaqueries */
+@media(max-width:992px){
+    .navbar{
+        gap: 10px;
+        display: flex;
+    }
+    .navbar-list{
+        position: absolute;
+        top: 100px;
+        left: 5%;
+        right: 5%;        
+        width: 90%;
+        flex-direction: column;
+        background: var(--borders);
+        border-top: 0;
+        border-radius: 0px 0px 15px 15px;
+        justify-content: center;
+        align-items: center;
+        padding: 45px 30px;
+        gap: 25px;
+        z-index: 2;
+        display: flex;
+        transform: translateX(200%);
+        transition: all 0.4s ease-out;
+    }
+    .navbar img{
+        display: flex;
+        font-size: 36px;
+        display: block;
+    }
+    .navbar-list a{
+        font-size: 18px;
+    }
+    .toggle-menu{
+        display: flex;
+        cursor: pointer;
+    }
+    #toggle-menu{
+        display: flex;  
+    }
+    #toggle-menu:checked + .navbar-list{
+        display: flex;
+        transform: translateX(0%);
+        transition: all 0.4s ease-in;
+    }
+    .hero-info{
+        width: 100%;
+        gap: 30px;
+    }
+    .hero-info p{
+        text-align: center;
+    }
+    .hero-info a{
+        align-self: center;
+    }
+    .hero-img{
+        display: none;
+    }
+    #info{
+        width: 90%;
+        line-height: 19px;
+    }
+    .info-card{
+        gap: 20px;
+    }
+#cards h2::before, 
+h2::after{
+    display: none;
+} 
+.datos{    
+    display: flex;
+    flex-direction: column;  
+} 
+.contacto{
+    width: unset;
+    flex-direction: column;
+}
+.datos h2,
+h3,
+li{
+    text-align: center;
+}
+.mapa iframe{
+    width: 100%;
+    align-self: center;
+}
+}
+@media(max-width:576px){
+    .logo{
+        width: 150px;
+        height: unset;
+    }
+    .navbar ul{
+        width: 100%;
+        height: calc(100vh - 100px);
+        left: 0;
+        border-radius: unset;
+        background: var(--text-violeta);
+        position: absolute;
+        top: 100px;
+        flex-direction: column;
+        transform: translateX(200%);
+    }
+    .navbar img{
+        display: block;
+    }
+    #toggle-menu:checked + .navbar-list{
+        transform: translateX(0%);
+    }
+    .navbar-list a{
+        font-size: 30px;
+        gap: 50px;
+        color: var(--borders);
+    }
+    #info{
+        display: none;
+    }
+    .hero-info{
+        gap: unset;
+    }
+    h1{
+        display: none;
+    }
+    .hero-info a{
+        margin-right: 25px;
+    }
+    .contact{
+        justify-content: center;
+    }
+    .contacto{
+        padding: unset;        
+    }    
+    .mapa{
+        display: none;
+    }
+    footer p{
+        font-size: 10px;
+    }
+}
